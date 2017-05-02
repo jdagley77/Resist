@@ -1,24 +1,18 @@
-# README
+# Resist
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## The Team
+* Don Lang
+* Aaron Calander
+* Antonio Saric
+* Jack Dagley
 
-Things you may want to cover:
+## Description
+Resist gives activists a way to contribute to causes they care about. The platform allows people to donate to issues of their choice. These contributions fund the activities of advocates on behalf of the issues.
 
-* Ruby version
+## Requirements
+* Rails 5.0.2
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Technologies Used
+* Docusign API 
+* Google OAuth for user auth
+* PostgreSQL for the database
