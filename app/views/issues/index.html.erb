@@ -7,19 +7,19 @@
     </ul>
   </div>
 </nav>
-  
-<div class="container">
-<div class="parallax-container">
-  <div class="parallax"><%= image_tag "/assets/Dec.jpg"%></div>
-</div>   
 
 <div class="container">
-  <h1>Welcome To RESIST</h1>
-  <h5>The crowdfunding platform for supporting the political causes that matter to you.</h5>
-  <p> To Sign Or Donate Please Login </p>
-  <div>
-    <% @issues.each do |issue| %>
-    <%= link_to issue.title, issue_path(issue) %><br><br>
-    <% end %>
+  <div class="parallax-container">
+    <div class="parallax"><%= image_tag "/assets/Dec.jpg"%></div>
+  </div>   
+
+  <div class="container">
+    <h1>Welcome To RESIST</h1>
+    <h5>The crowdfunding platform for supporting the political causes that matter to you.</h5>
+    <p> To Sign Or Donate Please Login </p>
+    <div>
+      <% @issues.each do |issue| %>
+      <%= link_to issue.title, issue_path(issue) %><br><br>
+      <% end %>
+    </div>
   </div>
-</div>

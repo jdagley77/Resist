@@ -9,12 +9,12 @@
 </nav>
 
 <div class="container">
-<h3> Welcome, <%= @user.username %> </h3>
-<br>
-<p> Your Resist's: </p>
-<% @user.issues.each do |issue| %>
-<%= link_to issue.title, issue_path(issue) %><br><br>
-<% end %>
+  <h3> Welcome, <%= @user.username %> </h3>
+  <br>
+  <p> Your Resist's: </p>
+  <% @user.issues.each do |issue| %>
+  <%= link_to issue.title, issue_path(issue) %><br><br>
+  <% end %><br>
 
 
   <a href="/users/sign_out" data-method="delete" class="waves-effect waves-light btn-large">Logout</a>
