@@ -17,7 +17,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user.access_token = request.env["omniauth.auth"].credentials.token
     @user.refresh_token = request.env["omniauth.auth"].credentials.request_token
     @user.save
-
+    
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "#{auth_hash.provider}") if is_navigational_format?
