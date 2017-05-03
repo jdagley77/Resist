@@ -31,6 +31,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'rb-readline'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'devise', github: 'twalpole/devise', branch: 'master'
+gem 'omniauth-google-oauth2'
+gem 'google-api-client', '0.7.1', require: 'google/api_client'
+gem 'httparty'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
