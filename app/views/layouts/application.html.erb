@@ -3,12 +3,22 @@
   <head>
     <title>Resist</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+    <div class="nav-wrapper">
+      <img id="logo" alt="Icon" src="/assets/resist.png" />
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Login With Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+      </ul>
+    </div>
+  </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
