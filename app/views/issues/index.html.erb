@@ -1,6 +1,6 @@
 <nav>
-  <div class="nav-wrapper purple lighten-1">
-    <img id="logo" alt="Icon" src="/assets/fist.png" />
+  <div class="nav-wrapper blue lighten-1">
+    <img id="logo" alt="Icon" src="/assets/resist_together.jpg" />
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Login With Google", user_omniauth_authorize_path(:google_oauth2) %></li>
@@ -22,7 +22,7 @@
 
       <div class="col s12 m7">
         <h2 class="header"></h2>
-        <div class="card horizontal blue darken-4">
+        <div class="card horizontal blue lighten-1">
           <div class="card-stacked">
             <div class="card-content">
               <h3><%= link_to issue.title, issue_path(issue) %></h3>
@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      
+
       <% end %>
     </div>
   </div>
