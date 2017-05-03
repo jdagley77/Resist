@@ -12,10 +12,11 @@ Issue.destroy_all
 Comment.destroy_all
 Payment.destroy_all
 
+issues = ["Marijuana Should be a Medical Option", "Golf is a Sport, Vote yes on Golf", "Lower the Drinking Age to 18", "Ban Unnecessary Diving in Soccer", "Enforce Mandatory Dog Leash Laws in Public Parks", "Penalize Unnecessary Honking on the Road", "Raise the Tax on Sugary Drinks", "Save Australia's Sharks", "Ban Tackling in the NFL"]
 
-10.times do
+issues.each do |issue|
   Issue.create({
-    title: Faker::Lorem.sentences(1),
+    title: issue, 
     description: Faker::Lorem.sentences(3),
     user_id: 1
     })
