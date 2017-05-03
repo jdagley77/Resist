@@ -1,3 +1,5 @@
+
+
 <nav>
   <div class="nav-wrapper blue darken-4">
     <img id="logo" alt="Icon" src="/assets/fist.png" />
@@ -11,5 +13,7 @@
 <div class="container">
   <h1><%= @issue.title %></h1>
   <p><%= @issue.description %></p>
+  <% if current_user %>
   <p><%= @user.username %></p> 
+  <% end %>
 </div>
