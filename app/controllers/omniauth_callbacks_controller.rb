@@ -1,13 +1,18 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def google_oauth2
+
     $code_for_cal = params[:code]
+
     login request.env["omniauth.auth"]
+
+
   end
 
   private
 
   def login auth_hash
+
     @user = User.from_omniauth(auth_hash)
     @user.access_token = request.env["omniauth.auth"].credentials.token
     @user.refresh_token = request.env["omniauth.auth"].credentials.request_token
