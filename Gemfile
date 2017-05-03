@@ -38,6 +38,7 @@ gem 'devise', github: 'twalpole/devise', branch: 'master'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '0.7.1', require: 'google/api_client'
 gem 'httparty'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
