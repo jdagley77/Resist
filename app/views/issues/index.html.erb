@@ -4,6 +4,6 @@
 
 <div>
 <% @issues.each do |issue| %>
-  <%= link_to issue.title, user_issues_path(issue) %><br><br>
+  <%= link_to issue.title, issue_path(issue) %><br><br>
   <% end %>
 </div>
