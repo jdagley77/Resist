@@ -1,21 +1,18 @@
 <nav>
-  <div class="nav-wrapper blue darken-4">
-    <img id="logo" alt="Icon" src="/assets/fist.png" />
+  <div class="nav-wrapper blue lighten-1">
+    <img id="logo" alt="Icon" src="/assets/resist_together.jpg" />
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Login With Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+      <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <h3> Welcome, <%= @user.username %> </h3>
+  <h3> Welcome <%= @user.username %>! </h3>
   <br>
-  <p> Your Resist's: </p>
+  <p>Your Resistance History:</p>
   <% @user.issues.each do |issue| %>
   <%= link_to issue.title, issue_path(issue) %><br><br>
   <% end %><br>
-
-
-  <a href="/users/sign_out" data-method="delete" class="waves-effect waves-light btn-large">Logout</a>
-</div>  
+</div>
