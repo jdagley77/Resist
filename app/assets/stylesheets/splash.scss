@@ -20,7 +20,6 @@
   text-align: center;
   padding: 7.5em 0 2em 0;
   cursor: default;
-  width: 100%;
 }
 
 
@@ -56,6 +55,13 @@
 
 .homepage.is-loading #headerone:after {
   opacity: 1;
+}
+
+.splash-login {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
 }
 
 
