@@ -40,6 +40,8 @@ gem 'google-api-client', '0.7.1', require: 'google/api_client'
 gem 'httparty'
 gem 'faker'
 
+
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :issues
+  resources :issues do
+    match 'sign', :on => :collection, :via => [:get]
+  end
 
 
 end
