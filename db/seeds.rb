@@ -17,7 +17,7 @@ issues = ["Marijuana Should be a Medical Option", "Golf is a Sport, Vote yes on 
 issues.each do |issue|
   Issue.create({
     title: issue, 
-    description: Faker::Lorem.sentences(3),
+    description: Faker::Lorem.paragraph(2),
     user_id: 1
     })
 end

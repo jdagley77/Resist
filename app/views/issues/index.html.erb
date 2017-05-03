@@ -19,7 +19,22 @@
     <p> To Sign Or Donate Please Login </p>
     <div>
       <% @issues.each do |issue| %>
-      <%= link_to issue.title, issue_path(issue) %><br><br>
+
+      <div class="col s12 m7">
+        <h2 class="header"></h2>
+        <div class="card horizontal blue darken-4">
+          <div class="card-stacked">
+            <div class="card-content">
+              <h3><%= link_to issue.title, issue_path(issue) %></h3>
+              <%= issue.description %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
       <% end %>
     </div>
   </div>
+
+

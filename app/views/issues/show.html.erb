@@ -1,3 +1,5 @@
+
+
 <nav>
   <div class="nav-wrapper blue darken-4">
     <img id="logo" alt="Icon" src="/assets/fist.png" />
@@ -8,8 +10,12 @@
   </div>
 </nav>
 
+<%= link_to "Back to Issues", issues_path, class: "back-button"%>
+
 <div class="container">
   <h1><%= @issue.title %></h1>
   <p><%= @issue.description %></p>
+  <% if current_user %>
   <p><%= @user.username %></p> 
+  <% end %>
 </div>
