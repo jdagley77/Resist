@@ -5,28 +5,20 @@ module DocusignHelper
   def docusign_post_requests(user, document)
     dev_account_id = ENV['DOCUSIGN_DEVELOPER_ACCOUNT_ID']
     response = envelope_request(user, document)
-    # envelope_id = response.parsed_response["envelopeId"]
-    response = HTTParty.post("https://demo.docusign.net/restapi/v2/accounts/#{dev_account_id}/envelopes/9e0bf7aa-824c-485d-b904-48c2b39e0da0/views/recipient", headers: headers, body: data_body.to_json)
-    print "*" * 50
-    print response
+    envelope_id = response.parsed_response["envelopeId"]
+    response = HTTParty.post("https://demo.docusign.net/restapi/v2/accounts/#{dev_account_id}/envelopes/#{envelope_id}/views/recipient", headers: headers, body: data_body.to_json)
+
     response.parsed_response["url"]
   end
 
   private
 
   def envelope_request(user, document)
-
     dev_account_id = ENV['DOCUSIGN_DEVELOPER_ACCOUNT_ID']
-    print "CC" * 50
-    print post_data[:body].to_json
     doc = File.open("net.pdf", 'r') { |fp| fp.read }
     @encoded = Base64.encode64(doc)
     create_vars(user, document)
     HTTParty.post("https://demo.docusign.net/restapi/v2/accounts/#{dev_account_id}/envelopes", headers: headers, body: post_data[:body].to_json)
-      print "&&&" * 50
-    print ("https://demo.docusign.net/restapi/v2/accounts/#{dev_account_id}/envelopes/")
-    print "#{headers}"
-    print "#{data_body.to_json}"
   end
 
   def headers
@@ -50,43 +42,30 @@ module DocusignHelper
         "clientUserId": @user_id,
         "email": @user_email,
         "recipientId": @user_id,
-        "returnUrl": "http://localhost:3000",
+        "returnUrl": "http://localhost:3000/success",
         "username": @user_name
     }
   end
 
   def post_data
-    @api_key = ENV['DOCUSIGN_API']
-    @username =  ENV['DOCUSIGN_USERNAME']
-    @password = ENV['DOCUSIGN_PASSWORD']
-    @account_id = ENV['DOCUSIGN_ACCOUNT_ID']
-    @file_extension = ".pdf"
-    @user_id = "1"
-    @user_email = "donaldnlang2@gmail.com"
-    @user_name = "Don Lang"
-    @recipient_id = "1" #user.try.id
-    @document_id = "1" #document.try.id
-    @document_name = "Fund the Public Arts"
-    doc = File.open("net.pdf", 'r') { |fp| fp.read }
-    @encoded = Base64.encode64(doc)
     post_data = {
       body:{
       "documents": [
         {
           "documentBase64": @encoded,
           "documentId": "1",
-          "fileExtension": ".pdf",
-          "name": "#{@document_name}.pdf"
+          "fileExtension": @file_extension,
+          "name": "#{@document_name}.#{@file_extension}"
         }
       ],
       "emailSubject": @document_name,
       "recipients":{
         "signers": [
           {
-            "email": "donaldnlang2@gmail.com",
+            "email": @user_email,
             "name": @user_name,
             "clientUserId": @user_id,
-            "recipientId": "1",
+            "recipientId": @user_id,
             "routingOrder": "1",
             "tabs": {
               "dateSignedTabs":[
@@ -123,7 +102,7 @@ module DocusignHelper
                 }
               ],
 
-              "numberTabs": [
+ "numberTabs": [
           {
             "isPaymentAmount": "false",
             "width": 78,
@@ -175,21 +154,20 @@ module DocusignHelper
       "status": "sent"
       }
     }
-
   end
 
   def create_vars(user, document)
-
     @api_key = ENV['DOCUSIGN_API']
     @username =  ENV['DOCUSIGN_USERNAME']
     @password = ENV['DOCUSIGN_PASSWORD']
     @account_id = ENV['DOCUSIGN_ACCOUNT_ID']
+    @gatway_account_id = ENV['']
     @file_extension = ".pdf"
     @user_id = user.id
     @user_email = user.email
-    @user_name = user.username
+    @user_name = "Bob"
     @recipient_id = "1" #user.try.id
-    @document_id = document.id #document.try.id
-    @document_name = "Fund the Public Arts" #document.try.title
+    @document_id = "300" #document.try.id
+    @document_name = "Issues" #document.try.title
   end
 end
